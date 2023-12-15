@@ -25,7 +25,7 @@ export const getTodos = async (searchData: SearchData): Promise<Todo[]> => {
   let query = supabase
     .from("todos")
     .select("*")
-    .eq('ip', searchData.clientIp)
+    .eq('ip', searchData.ip)
     .order("id", { ascending: false });
 
   if (searchData.status) {

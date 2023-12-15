@@ -10,7 +10,7 @@ export type SearchData = {
   status?: string;
   page: number;
   limit: number;
-  clientIp?: string;
+  ip: string;
 };
 
 

@@ -5,20 +5,12 @@ import { HomeIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
+;
 
-
-
-
-
-type FormPageProps = {
-  searchParams: {
-    clientIp: string;
-  };
-};
-
-export default async function FormPage({ searchParams: { clientIp } }: FormPageProps) {
- 
-
+export default async function FormPage() {
+  const ip = headers().get("x-forwarded-for") as string;
+  
   async function createTodoAction(formData: FormData) {
  
    'use server'
@@ -85,7 +77,7 @@ export default async function FormPage({ searchParams: { clientIp } }: FormPageP
               required
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-            <input name="ip" type="hidden" value={clientIp} />
+            <input name="ip" type="hidden" value={ip} />
           </div>
           <div className="flex between">
             <button
