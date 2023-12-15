@@ -8,19 +8,25 @@ interface TodoItemProps {
   todo: Todo;
   onUpdate: (todo: Todo) => void;
   onDelete: (id: number) => void;
+  onView: (todo: Todo) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete, onView }) => {
   const { id } = todo;
 
   const handleToggleComplete = () => {
     onUpdate(todo);
+    alert('Todo updated successfully');
   };
 
   const handleDelete = () => {
     onDelete(Number(id));
-  }
+    alert('Todo deleted successfully');
+  };
 
+  const handleView = () => {
+    onView(todo);
+  };
 
   return (
     <li
@@ -66,10 +72,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdate, onDelete }) => {
           </span>
         </div>
         <div className='flex'>
-        <button className='bg-black flex items-center justify-center px-2 py-1 rounded text-white mr-2'>
+          <button className='bg-black flex items-center justify-center px-2 py-1 rounded text-white mr-2' onClick={handleView}>
             <EyeIcon className="w-5 h-5" />
           </button>
-          <button className='bg-red-700 flex items-center justify-center px-2 py-1 rounded text-white'>
+          <button className='bg-red-700 flex items-center justify-center px-2 py-1 rounded text-white' onClick={handleDelete}>
             <TrashIcon className="w-5 h-5" />
           </button>
         </div>
