@@ -35,9 +35,7 @@ To install locally with Yarn
 ```
     
 ## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
+![App](https://github.com/bendozy/heycater-todo/assets/12733001/367ad729-4bb8-41ee-a91a-e3dc9b3b42ee)
 
 ## Running Tests
 
